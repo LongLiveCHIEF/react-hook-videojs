@@ -7,7 +7,7 @@
   }
   var React__default = /* @__PURE__ */ _interopDefaultLegacy(React);
   var videojs__default = /* @__PURE__ */ _interopDefaultLegacy(videojs);
-  const useVideoJS = (videoJsOptions) => {
+  const useVideoJS = (videoJsOptions, classNames = "") => {
     const videoNode = React.useRef(null);
     const [ready, setReady] = React.useState(false);
     const changedKey = JSON.stringify(videoJsOptions);
@@ -26,7 +26,7 @@
       key: changedKey
     }, /* @__PURE__ */ React__default["default"].createElement("video", {
       ref: videoNode,
-      className: "video-js"
+      className: `video-js ${classNames}`
     })), [changedKey]);
     return { Video, ready, player: player.current };
   };

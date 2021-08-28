@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import videojs from "video.js";
-const useVideoJS = (videoJsOptions) => {
+const useVideoJS = (videoJsOptions, classNames = "") => {
   const videoNode = useRef(null);
   const [ready, setReady] = useState(false);
   const changedKey = JSON.stringify(videoJsOptions);
@@ -19,7 +19,7 @@ const useVideoJS = (videoJsOptions) => {
     key: changedKey
   }, /* @__PURE__ */ React.createElement("video", {
     ref: videoNode,
-    className: "video-js"
+    className: `video-js ${classNames}`
   })), [changedKey]);
   return { Video, ready, player: player.current };
 };
